@@ -1,0 +1,14 @@
+class Solution {
+    public List<String> fizzBuzz(int n) {
+        List<String> fizzBuzz=new ArrayList<String>();
+        int iterator=1;
+        while(iterator<=n){
+        if(iterator%3==0 && iterator%5==0) fizzBuzz.add("FizzBuzz");
+        else if(iterator%5==0) fizzBuzz.add("Buzz");
+        else if(iterator%3==0) fizzBuzz.add("Fizz");
+        else fizzBuzz.add(Integer.toString(iterator));
+            iterator++;
+        }
+        return fizzBuzz;
+    }
+}
