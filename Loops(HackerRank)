@@ -1,0 +1,8 @@
+if __name__ == '__main__':
+    n = int(input())
+    # loopIterator=0
+    # while(loopIterator<n):
+    #     print(loopIterator*loopIterator)
+    #     loopIterator+=1
+    for loopIterator in range(n):
+        print(loopIterator*loopIterator)
