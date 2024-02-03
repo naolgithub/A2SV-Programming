@@ -1,0 +1,14 @@
+class Solution:
+    def mergeAlternately(self, word1: str, word2: str) -> str:
+        merged_string=""
+        pointer_one=0
+        pointer_two=0
+        while(pointer_one<len(word1) or pointer_two<len(word2)):
+            if pointer_one<len(word1):
+                merged_string+=word1[pointer_one]
+                pointer_one+=1
+            if pointer_two<len(word2):
+                merged_string+=word2[pointer_two]
+                pointer_two+=1
+        return merged_string
+        
