@@ -1,0 +1,18 @@
+# class Solution {
+#     public String defangIPaddr(String address) {
+#         StringBuilder defanged=new StringBuilder();
+#         for(char c: address.toCharArray()){
+#             if(c =='.'){
+#                 defanged.append("[.]");
+#             }
+#             else{
+#                 defanged.append(c);
+#             }
+#         }
+#     return defanged.toString();
+#     }
+# }
+class Solution:
+    def defangIPaddr(self, address: str) -> str:
+        return address.replace('.','[.]')
+        
