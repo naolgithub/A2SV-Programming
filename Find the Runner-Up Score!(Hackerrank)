@@ -1,0 +1,17 @@
+if __name__ == '__main__':
+    n = int(input())
+    arr = map(int, input().split())
+    array=[]
+    sorted_array = sorted(arr)
+    maximum_element= max(sorted_array)
+    for i in sorted_array:
+        if (i<maximum_element):
+            array.append(i)
+    runner_up_score = max(array)
+    print(runner_up_score)
+
+    
+        
+
+
+
