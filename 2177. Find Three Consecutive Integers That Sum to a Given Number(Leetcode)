@@ -1,0 +1,14 @@
+# class Solution {
+#     public long[] sumOfThree(long num) {
+#         if(num%3!=0) return new long[]{};
+#         long middleNumber=num/3;
+#         return new long[]{middleNumber-1,middleNumber,middleNumber+1};
+#     }
+# }
+class Solution:
+    def sumOfThree(self, num: int) -> List[int]:
+        if num%3!=0:
+            return []
+        middle_number=num//3
+        return [middle_number-1,middle_number,middle_number+1]
+        
