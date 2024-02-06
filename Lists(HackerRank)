@@ -1,0 +1,19 @@
+N = int(input())
+list = []
+for _ in range(N):
+    operation = input().split(' ')
+    command = operation[0]
+    if command == "insert":
+            list.insert(int(operation[1]), int(operation[2]))
+    elif command == "print":
+            print(list)
+    elif command == "remove":
+            list.remove(int(operation[1]))
+    elif command == "append":
+            list.append(int(operation[1]))
+    elif command == "sort":
+            list.sort()
+    elif command == "pop":
+            list.pop()
+    elif command == "reverse":
+            list.reverse()
