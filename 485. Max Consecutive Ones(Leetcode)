@@ -1,0 +1,27 @@
+# class Solution {
+#     public int findMaxConsecutiveOnes(int[] nums) {
+#         int consecutiveOne=0;
+#         int maxConsecutiveOne=Integer.MIN_VALUE;
+#         for(int right=0;right<nums.length;right++){
+#             if(nums[right]==1){
+#                 consecutiveOne++;
+#                 maxConsecutiveOne=Math.max(maxConsecutiveOne,consecutiveOne);
+#             }else{
+#                 consecutiveOne=0;
+#             }
+#         }
+#         return maxConsecutiveOne;
+#     }
+# }
+class Solution:
+    def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
+        consecutive_one=0
+        max_consecutive_one=0
+        for right in range(len(nums)):
+            if nums[right]==1:
+                consecutive_one+=1
+                max_consecutive_one=max(max_consecutive_one,consecutive_one)
+            else:
+                consecutive_one=0
+        return max_consecutive_one
+        485. Max Consecutive Ones
