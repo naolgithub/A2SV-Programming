@@ -1,0 +1,57 @@
+#User function Template for python3
+
+def isSubset( a1, a2, n, m):
+    #Approach One 
+    #Converting to a list
+    # list_one=list(a1)
+    # list_two=list(a2)
+    # for i in range(len(list_two)):
+    #     if list_two[i] not in list_one:
+    #         return "No"
+    #     if list_two[i] in list_one:
+    #         list_one.remove(list_two[i])
+    # return "Yes"
+    #Approach Two
+    freq = {}
+    for num in a1:
+        if num in freq:
+            freq[num] += 1
+        else:
+            freq[num] = 1
+    for num in a2:
+        if num in freq and freq[num] > 0:
+            freq[num] -= 1
+        else:
+            return 'No'
+    return 'Yes'
+    
+    
+    
+    
+
+
+
+#{ 
+ # Driver Code Starts
+#Initial Template for Python 3
+
+
+def main():
+
+    T = int(input())
+
+    while(T > 0):
+        sz = [int(x) for x in input().strip().split()]
+        n, m = sz[0], sz[1]
+        a1 = [int(x) for x in input().strip().split()]
+        a2 = [int(x) for x in input().strip().split()]
+        
+        print(isSubset( a1, a2, n, m))
+
+        T -= 1
+
+
+if __name__ == "__main__":
+    main()
+
+# } Driver Code Ends
