@@ -1,0 +1,31 @@
+class Solution:
+    def findWinners(self, matches: List[List[int]]) -> List[List[int]]:
+        loss={}
+        for player in matches:
+            x,y=player
+            if x not in loss:
+                loss[x]=0
+            if y in loss:
+                loss[y]+=1
+            else:
+                loss[y]=1
+        ans=[[],[]]
+        #OR
+        result=[]
+        lost_once=[]
+        never_lost=[]
+        for key,value_or_frequency in loss.items():
+            if value_or_frequency==0:
+                ans[0].append(key)
+                #OR
+                never_lost.append(key)
+            elif value_or_frequency==1:
+                ans[1].append(key)
+                #OR
+                lost_once.append(key)
+        return [sorted(ans[0]),sorted(ans[1])]
+        #OR
+        # result.append(sorted(never_lost))
+        # result.append(sorted(lost_once))
+        # return result
+        
