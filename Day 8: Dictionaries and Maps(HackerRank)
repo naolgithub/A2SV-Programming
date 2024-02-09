@@ -1,0 +1,26 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+entries = int(input())
+
+phoneBook = {}
+
+for i in range(entries):
+    values = str(input())
+    name = values.split()[0] # get name
+    number = values.split()[1] # get number
+    
+    phoneBook[name] = number
+    # add each number to the phone book
+    
+queries = str(input())
+
+while queries:
+    if queries in phoneBook:
+        print(queries + "=" + phoneBook.get(queries))
+    else:
+        print("Not found")
+    try:
+        queries = input()
+    except EOFError:
+        break
+    # loop through rest of the lines
