@@ -1,0 +1,23 @@
+# class Solution {
+#     public int[] shuffle(int[] nums, int n) {
+#         int[] shuffledArray=new int[2*n];
+#         int i=0;
+#         int j=n;
+#         int index=0;
+#         while(index<shuffledArray.length && i<shuffledArray.length){
+#             shuffledArray[index++]=nums[i];
+#             shuffledArray[index++]=nums[j];
+#             i++;
+#             j++;
+#         }
+#         return shuffledArray;
+#     }
+# }
+class Solution:
+    def shuffle(self, nums: List[int], n: int) -> List[int]:
+        shuffledArray=[]
+        for i in range(n):
+            shuffledArray.append(nums[i])
+            shuffledArray.append(nums[i+n])
+        return shuffledArray
+        
