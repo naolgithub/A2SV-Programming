@@ -1,0 +1,38 @@
+# class Solution {
+#     public int[] rearrangeArray(int[] nums) {
+#         int[] reArrangedArray=new int[nums.length];
+#         int positiveIndex=0;
+#         int negativeIndex=1;
+#         for(int i=0;i<nums.length;i++){
+#             if(nums[i]>0){
+#                reArrangedArray[positiveIndex]=nums[i]; 
+#                positiveIndex+=2;
+#             } 
+            
+#             if(nums[i]<0){
+#                 reArrangedArray[negativeIndex]=nums[i];
+#                 negativeIndex+=2;
+#             } 
+#         }
+#         return reArrangedArray;
+#     }
+# }
+class Solution:
+    def rearrangeArray(self, nums: List[int]) -> List[int]:
+        #Array of size len(nums) is initialized
+        reArrangedArray=[0]*len(nums) # int[] reArrangedArray=new int[nums.length];
+        positiveIndex=0
+        negativeIndex=1
+        for i in range(len(nums)):
+            if nums[i]>0:
+                reArrangedArray[positiveIndex]=nums[i]
+                positiveIndex+=2
+            if nums[i]<0:
+                reArrangedArray[negativeIndex]=nums[i]
+                negativeIndex+=2
+        return reArrangedArray
+                
+                
+                
+                
+        
