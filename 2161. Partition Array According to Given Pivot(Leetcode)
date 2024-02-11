@@ -1,0 +1,44 @@
+# class Solution {
+#     public int[] pivotArray(int[] nums, int pivot) {
+#         List<Integer> beforePivotElements=new ArrayList();
+#         List<Integer> afterPivotElements=new ArrayList();
+#         List<Integer> pivotElements=new ArrayList();
+#         int[] partitionedArray=new int[nums.length];
+#         List<Integer> partitionedList=new ArrayList();
+#         for(int i=0;i<nums.length;i++){
+#             if(nums[i]==pivot) pivotElements.add(nums[i]);
+#             if(nums[i]<pivot) beforePivotElements.add(nums[i]);
+#             if(nums[i]>pivot) afterPivotElements.add(nums[i]);
+#         }
+#         for(int i=0;i<beforePivotElements.size();i++){
+#             partitionedList.add(beforePivotElements.get(i));
+#         }
+#         for(int i=0;i<pivotElements.size();i++){
+#             partitionedList.add(pivotElements.get(i));
+#         }
+#         for(int i=0;i<afterPivotElements.size();i++){
+#             partitionedList.add(afterPivotElements.get(i));
+#         }
+#         for(int i=0;i<partitionedArray.length;i++){
+#             partitionedArray[i]=partitionedList.get(i);
+#         }
+#         return partitionedArray;
+#     }
+# }
+class Solution:
+    def pivotArray(self, nums: List[int], pivot: int) -> List[int]:
+        beforePivotElements=[]
+        afterPivotElements=[]
+        pivotElements=[]
+        for num in nums:
+            if num==pivot:
+                pivotElements.append(num)
+            elif num<pivot:
+                beforePivotElements.append(num)
+            else:
+                afterPivotElements.append(num)
+        partitionedArray=beforePivotElements+pivotElements+afterPivotElements
+        return partitionedArray
+
+        
+        
