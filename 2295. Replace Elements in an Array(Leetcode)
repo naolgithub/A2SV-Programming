@@ -1,0 +1,67 @@
+JAVA SOLUTION:
+class Solution {
+    public int[] arrayChange(int[] nums, int[][] operations) {
+        //1.Time Limit Exceeded Solution/Brute force Approach
+        // for(int i=0;i<nums.length;i++){
+        //     for(int[] operation:operations){
+        //         if(nums[i]==operation[0]){
+        //             nums[i]=operation[1];
+        //         }
+        //     }
+        // }
+        // return nums;
+        /*
+        We need to store index of distinct values of nums array in a map.
+While running through the operations get the index of current element and at that index add the new element. Aslo note we need to remove the previous value index pair and add the new value index pair.
+        */
+        //2. 2nd approach
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        for(int i=0;i<nums.length;i++)
+        {
+            map.put(nums[i], i);
+        }
+
+        for(int i=0;i<operations.length;i++)
+        {
+            int index = map.get(operations[i][0]);
+            nums[index] = operations[i][1];
+
+            // modify the map
+            map.remove(operations[i][0]);
+            map.put(nums[index], index);
+        }
+
+        return nums;
+        //3.3rd approach
+        // Map<Integer,Integer> map = new HashMap<>();
+        // for(int i=0;i<nums.length;i++) map.put(nums[i],i);
+        // for(int[] op: operations) {
+        //     nums[map.get(op[0])] = op[1];
+        //     map.put(op[1],map.get(op[0]));
+        //     map.remove(op[0]);
+        // }
+        // return nums;
+    }
+}
+
+PYTHON SOLUTION:
+
+class Solution:
+    def arrayChange(self, nums: List[int], operations: List[List[int]]) -> List[int]:
+        
+        # Create a dictionary to map the elements of nums to their indices
+        map = {}
+        for i in range(len(nums)):
+            map[nums[i]] = i
+        # Update the elements of nums based on the operations and modify the map accordingly
+        for operation in operations:
+            index = map[operation[0]]
+            nums[index] = operation[1]
+            # Modify the map
+            del map[operation[0]]
+            map[nums[index]] = index
+
+        return nums
+
+        
