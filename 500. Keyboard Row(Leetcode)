@@ -1,0 +1,48 @@
+class Solution {
+    public String[] findWords(String[] words) {
+        Set<Character> rowOneSet = Set.of('q','w','e','r','t','y','u','i','o','p');
+        Set<Character> rowTwoSet = Set.of('a','s','d','f','g','h','j','k','l');
+        Set<Character> rowThreeSet = Set.of('z','x','c','v','b','n','m');
+        List<String> oneRowTypedWordsList=new ArrayList();
+        
+        for(String s: words){
+            boolean rowOneContainsAll=true;
+            for(char c: s.toCharArray()){
+                if(!rowOneSet.contains(Character.toLowerCase(c))){
+                    rowOneContainsAll=false;
+                    break;
+                }
+            }
+            if(rowOneContainsAll) oneRowTypedWordsList.add(s);
+            
+            
+            boolean rowTwoContainsAll=true;
+            for(char c: s.toCharArray()){
+                if(!rowTwoSet.contains(Character.toLowerCase(c))){
+                    rowTwoContainsAll=false;
+                    break;
+                }
+            }
+            if(rowTwoContainsAll) oneRowTypedWordsList.add(s);
+            
+            
+            
+            boolean rowThreeContainsAll=true;
+            for(char c: s.toCharArray()){
+                if(!rowThreeSet.contains(Character.toLowerCase(c))){
+                    rowThreeContainsAll=false;
+                    break;
+                }
+            }
+            if(rowThreeContainsAll) oneRowTypedWordsList.add(s);            
+        }
+        String[] oneRowTypedWordsArray=new String[oneRowTypedWordsList.size()];
+        
+        for(int i=0;i<oneRowTypedWordsList.size();i++){
+            oneRowTypedWordsArray[i]=oneRowTypedWordsList.get(i);
+        }
+
+        // return oneRowTypedWords.toArray(new String[oneRowTypedWords.size()]);
+        return oneRowTypedWordsArray;
+    }
+}
