@@ -1,0 +1,55 @@
+#JAVA SOLUTION
+[
+class Solution {
+    public int[] reverse(int[] array){
+        for(int i=0;i<array.length/2;i++){
+            int temp=array[i];
+            array[i]=array[array.length-i-1];
+            array[array.length-i-1]=temp;
+        }
+        return array;
+    }
+    public int largestPerimeter(int[] nums) {
+        /*
+      If sidelengths of the triangle are 
+a≤b≤c. The necessary and sufficient condition for these lengths to form a triangle of non-zero area is 
+a+b>c
+        */
+        //1ST APPROACH
+//         Arrays.sort(nums);
+//         for(int i=nums.length-1;i>=2;i--){
+//             if(nums[i-1]+nums[i-2]>nums[i]){
+//                 return nums[i-1]+nums[i-2]+nums[i];
+//             }
+//         }
+//         return 0;
+        
+        //2ND APPROACH
+        
+        //Sorting the array in descending order
+        Arrays.sort(nums);
+        nums=reverse(nums);
+        for(int i=0;i<nums.length-2;i++){
+            if(nums[i]<nums[i+1]+nums[i+2]){
+                return nums[i]+nums[i+1]+nums[i+2];
+            }
+        }
+        return 0;
+    }
+}
+]
+
+
+
+
+
+#PYTHON SOLUTION
+[
+class Solution:
+    def largestPerimeter(self, nums: List[int]) -> int:
+        nums.sort(reverse = True)
+        for i in range(len(nums)-2):
+            if nums[i]<nums[i+1]+nums[i+2]: 
+                return nums[i]+nums[i+1]+nums[i+2]
+        return 0
+]
