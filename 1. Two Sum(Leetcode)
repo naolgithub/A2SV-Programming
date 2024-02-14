@@ -1,0 +1,12 @@
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        two_sum_dict={}
+        two_sum_indices=[]
+        for i in range(len(nums)):
+            difference=target-nums[i]
+            if difference in two_sum_dict:
+                two_sum_indices.append(i)
+                two_sum_indices.append(two_sum_dict[difference])
+            two_sum_dict[nums[i]]=i
+        return two_sum_indices
+        
