@@ -1,0 +1,22 @@
+class Solution {
+    public int wateringPlants(int[] plants, int capacity) {
+        int wateringCanCapacity=capacity;
+        int numberOfSteps=0;
+       for(int i=0;i<plants.length;)
+       {
+           if(wateringCanCapacity>=plants[i])
+           {
+               wateringCanCapacity-=plants[i];
+               numberOfSteps++;
+               i++;
+           }
+           else 
+           {
+               numberOfSteps+=2*i;
+               wateringCanCapacity=capacity;
+           }
+           System.out.println(numberOfSteps);
+       }
+       return numberOfSteps;
+    }
+}
