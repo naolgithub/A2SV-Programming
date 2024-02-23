@@ -1,0 +1,11 @@
+class Solution:
+    def minDeletionSize(self, strs: List[str]) -> int:
+        m,n=len(strs),len(strs[0])
+        count_columns_tobe_deleted=0
+        for col in range(n):
+            for row in range(m-1):
+                if ord(strs[row][col])>ord(strs[row+1][col]):
+                    count_columns_tobe_deleted+=1
+                    break
+        return count_columns_tobe_deleted        
+        
