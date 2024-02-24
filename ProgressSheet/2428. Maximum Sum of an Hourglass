@@ -1,0 +1,42 @@
+// class Solution {
+//     public int maxSum(int[][] grid) {
+//         int maxHourGlass = 0;
+//         for (int i=0;i<grid.length-2;i++){
+//             int currentHourGlass = 0;
+//             for (int j=0;j<grid[0].length-2;j++){                       
+//                 currentHourGlass = grid[i][j] + grid[i][j+1] + grid[i][j+2];             //  upper part
+//                 currentHourGlass += grid[i+1][j+1];                                      // mid part
+//                 currentHourGlass += grid[i+2][j] + grid[i+2][j+1] + grid[i+2][j+2];      // lower part
+                
+//                 // if (currentHourGlass > maxHourGlass) maxHourGlass = currentHourGlass;
+//                 maxHourGlass=Math.max(maxHourGlass,currentHourGlass);
+//             }
+            
+//         }
+//         return maxHourGlass;
+//     }
+// }
+
+class Solution {
+    public int maxSum(int[][] grid) {
+        int maxHourGlass = 0;
+        for(int i = 0; i < grid.length-2; i++) {
+            for(int j = 0; j < grid[0].length-2; j++) {
+                int currentHourGlass = 0;
+                //upper hourglass part
+                for(int z = j; z < j+3; z++) {
+                    currentHourGlass += grid[i][z];
+                }
+                //mid hourglass part
+                currentHourGlass += grid[i+1][j+1];
+                //lower hourglass part
+                 for(int z = j; z < j+3; z++) {
+                    currentHourGlass += grid[i+2][z];
+                }
+                maxHourGlass = Math.max(currentHourGlass, maxHourGlass);
+
+            }
+        }
+        return maxHourGlass;
+    }
+}
